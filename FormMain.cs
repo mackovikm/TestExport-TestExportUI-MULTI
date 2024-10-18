@@ -63,7 +63,14 @@ namespace TestExportUI
         private void btnRun_Click(object sender, EventArgs e)
         {
             string? exePath = Path.GetFullPath(@"d:\develop\TestExport\x64\Debug\TestExport.exe");
-            string exeParams = String.Concat(strAkce, " ", strIV, " ", strKey, " ", strData);
+            string  exeFind = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "TestExport.exe");
+            if (File.Exists(exeFind))
+            {
+                exePath = Path.GetFullPath(exeFind);
+            }
+            
+            string strFilename = String.Format("Export_{0}.txt", DateTime.Now.ToString("yyyyMMdd-HHmmss"));
+            string exeParams = String.Concat(strAkce, " ", strIV, " ", strKey, " ", strData, " ", strFilename);
 
             ProcessStartInfo startInfo = new ProcessStartInfo(exePath);
             startInfo.Arguments = exeParams;
