@@ -41,6 +41,12 @@
             btnCopy = new Button();
             txtOut2 = new TextBox();
             txtOut1 = new TextBox();
+            lblIVLen = new Label();
+            lblKEYLen = new Label();
+            lblDATALen = new Label();
+            btnIVReset = new Button();
+            btnKEYReset = new Button();
+            btnDATAReset = new Button();
             SuspendLayout();
             // 
             // btnClose
@@ -65,7 +71,7 @@
             // 
             // txtKEY
             // 
-            txtKEY.Location = new Point(279, 25);
+            txtKEY.Location = new Point(323, 25);
             txtKEY.Name = "txtKEY";
             txtKEY.Size = new Size(241, 23);
             txtKEY.TabIndex = 2;
@@ -74,7 +80,7 @@
             // 
             // txtDATA
             // 
-            txtDATA.Location = new Point(541, 25);
+            txtDATA.Location = new Point(637, 25);
             txtDATA.Name = "txtDATA";
             txtDATA.Size = new Size(241, 23);
             txtDATA.TabIndex = 3;
@@ -93,7 +99,7 @@
             // lblKEY
             // 
             lblKEY.AutoSize = true;
-            lblKEY.Location = new Point(279, 7);
+            lblKEY.Location = new Point(323, 7);
             lblKEY.Name = "lblKEY";
             lblKEY.Size = new Size(27, 15);
             lblKEY.TabIndex = 6;
@@ -102,7 +108,7 @@
             // lblDATA
             // 
             lblDATA.AutoSize = true;
-            lblDATA.Location = new Point(541, 7);
+            lblDATA.Location = new Point(637, 7);
             lblDATA.Name = "lblDATA";
             lblDATA.Size = new Size(35, 15);
             lblDATA.TabIndex = 7;
@@ -171,18 +177,81 @@
             // 
             txtOut1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtOut1.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut1.Location = new Point(585, 65);
+            txtOut1.Location = new Point(571, 65);
             txtOut1.Multiline = true;
             txtOut1.Name = "txtOut1";
             txtOut1.ScrollBars = ScrollBars.Both;
-            txtOut1.Size = new Size(562, 376);
+            txtOut1.Size = new Size(576, 376);
             txtOut1.TabIndex = 14;
+            // 
+            // lblIVLen
+            // 
+            lblIVLen.AutoSize = true;
+            lblIVLen.Location = new Point(244, 7);
+            lblIVLen.Name = "lblIVLen";
+            lblIVLen.Size = new Size(14, 15);
+            lblIVLen.TabIndex = 15;
+            lblIVLen.Text = "X";
+            // 
+            // lblKEYLen
+            // 
+            lblKEYLen.AutoSize = true;
+            lblKEYLen.Location = new Point(550, 7);
+            lblKEYLen.Name = "lblKEYLen";
+            lblKEYLen.Size = new Size(14, 15);
+            lblKEYLen.TabIndex = 16;
+            lblKEYLen.Text = "X";
+            // 
+            // lblDATALen
+            // 
+            lblDATALen.AutoSize = true;
+            lblDATALen.Location = new Point(864, 7);
+            lblDATALen.Name = "lblDATALen";
+            lblDATALen.Size = new Size(14, 15);
+            lblDATALen.TabIndex = 17;
+            lblDATALen.Text = "X";
+            // 
+            // btnIVReset
+            // 
+            btnIVReset.Location = new Point(264, 25);
+            btnIVReset.Name = "btnIVReset";
+            btnIVReset.Size = new Size(23, 21);
+            btnIVReset.TabIndex = 18;
+            btnIVReset.Text = "R";
+            btnIVReset.UseVisualStyleBackColor = true;
+            btnIVReset.Click += btnIVReset_Click;
+            // 
+            // btnKEYReset
+            // 
+            btnKEYReset.Location = new Point(570, 25);
+            btnKEYReset.Name = "btnKEYReset";
+            btnKEYReset.Size = new Size(23, 21);
+            btnKEYReset.TabIndex = 19;
+            btnKEYReset.Text = "R";
+            btnKEYReset.UseVisualStyleBackColor = true;
+            btnKEYReset.Click += btnKEYReset_Click;
+            // 
+            // btnDATAReset
+            // 
+            btnDATAReset.Location = new Point(884, 27);
+            btnDATAReset.Name = "btnDATAReset";
+            btnDATAReset.Size = new Size(23, 21);
+            btnDATAReset.TabIndex = 20;
+            btnDATAReset.Text = "R";
+            btnDATAReset.UseVisualStyleBackColor = true;
+            btnDATAReset.Click += btnDATAReset_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1165, 499);
+            Controls.Add(btnDATAReset);
+            Controls.Add(btnKEYReset);
+            Controls.Add(btnIVReset);
+            Controls.Add(lblDATALen);
+            Controls.Add(lblKEYLen);
+            Controls.Add(lblIVLen);
             Controls.Add(txtOut1);
             Controls.Add(txtOut2);
             Controls.Add(btnCopy);
@@ -217,5 +286,11 @@
         private Button btnCopy;
         private TextBox txtOut2;
         private TextBox txtOut1;
+        private Label lblIVLen;
+        private Label lblKEYLen;
+        private Label lblDATALen;
+        private Button btnIVReset;
+        private Button btnKEYReset;
+        private Button btnDATAReset;
     }
 }
