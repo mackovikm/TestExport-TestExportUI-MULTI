@@ -47,14 +47,22 @@
             btnIVReset = new Button();
             btnKEYReset = new Button();
             btnDATAReset = new Button();
+            txtIVStack = new TextBox();
+            txtKEYStack = new TextBox();
+            txtDATAStack = new TextBox();
+            btnIVStack = new Button();
+            btnKeyStack = new Button();
+            btnDataStack = new Button();
+            btnKey = new Button();
+            brnKeyRevert = new Button();
             SuspendLayout();
             // 
             // btnClose
             // 
             btnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnClose.Location = new Point(1072, 464);
+            btnClose.Location = new Point(1066, 466);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 23);
+            btnClose.Size = new Size(80, 23);
             btnClose.TabIndex = 0;
             btnClose.Text = "&Zavřít";
             btnClose.UseVisualStyleBackColor = true;
@@ -67,7 +75,10 @@
             txtIV.Size = new Size(241, 23);
             txtIV.TabIndex = 1;
             txtIV.Text = "2436372c6566892db1ddbd65bc657082";
+            txtIV.Click += txtIV_Click;
             txtIV.TextChanged += txtIV_TextChanged;
+            txtIV.DoubleClick += txtIV_DoubleClick;
+            txtIV.KeyPress += txtIV_KeyPress;
             // 
             // txtKEY
             // 
@@ -76,7 +87,10 @@
             txtKEY.Size = new Size(241, 23);
             txtKEY.TabIndex = 2;
             txtKEY.Text = "aab8d355400b01e3dd521535acf0e110";
+            txtKEY.Click += txtKEY_Click;
             txtKEY.TextChanged += txtKEY_TextChanged;
+            txtKEY.DoubleClick += txtKEY_DoubleClick;
+            txtKEY.KeyPress += txtKEY_KeyPress;
             // 
             // txtDATA
             // 
@@ -85,7 +99,10 @@
             txtDATA.Size = new Size(241, 23);
             txtDATA.TabIndex = 3;
             txtDATA.Text = "2fcb3dd0eb2210a6896e1286ac673b0f";
+            txtDATA.Click += txtDATA_Click;
             txtDATA.TextChanged += txtDATA_TextChanged;
+            txtDATA.DoubleClick += txtDATA_DoubleClick;
+            txtDATA.KeyPress += txtDATA_KeyPress;
             // 
             // lblIV
             // 
@@ -117,9 +134,9 @@
             // btnRun
             // 
             btnRun.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnRun.Location = new Point(991, 464);
+            btnRun.Location = new Point(982, 466);
             btnRun.Name = "btnRun";
-            btnRun.Size = new Size(75, 23);
+            btnRun.Size = new Size(80, 23);
             btnRun.TabIndex = 8;
             btnRun.Text = "&Spustit";
             btnRun.UseVisualStyleBackColor = true;
@@ -130,7 +147,7 @@
             radioDecode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             radioDecode.AutoSize = true;
             radioDecode.Checked = true;
-            radioDecode.Location = new Point(28, 468);
+            radioDecode.Location = new Point(18, 468);
             radioDecode.Name = "radioDecode";
             radioDecode.Size = new Size(65, 19);
             radioDecode.TabIndex = 9;
@@ -143,7 +160,7 @@
             // 
             radioEncode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             radioEncode.AutoSize = true;
-            radioEncode.Location = new Point(115, 468);
+            radioEncode.Location = new Point(100, 468);
             radioEncode.Name = "radioEncode";
             radioEncode.Size = new Size(64, 19);
             radioEncode.TabIndex = 10;
@@ -154,9 +171,9 @@
             // btnCopy
             // 
             btnCopy.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCopy.Location = new Point(831, 464);
+            btnCopy.Location = new Point(571, 468);
             btnCopy.Name = "btnCopy";
-            btnCopy.Size = new Size(129, 23);
+            btnCopy.Size = new Size(130, 23);
             btnCopy.TabIndex = 12;
             btnCopy.Text = "&Do clipboardu";
             btnCopy.UseVisualStyleBackColor = true;
@@ -166,22 +183,22 @@
             // 
             txtOut2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtOut2.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut2.Location = new Point(17, 65);
+            txtOut2.Location = new Point(16, 96);
             txtOut2.Multiline = true;
             txtOut2.Name = "txtOut2";
             txtOut2.ScrollBars = ScrollBars.Both;
-            txtOut2.Size = new Size(562, 376);
+            txtOut2.Size = new Size(562, 362);
             txtOut2.TabIndex = 13;
             // 
             // txtOut1
             // 
             txtOut1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtOut1.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut1.Location = new Point(571, 65);
+            txtOut1.Location = new Point(570, 96);
             txtOut1.Multiline = true;
             txtOut1.Name = "txtOut1";
             txtOut1.ScrollBars = ScrollBars.Both;
-            txtOut1.Size = new Size(576, 376);
+            txtOut1.Size = new Size(576, 362);
             txtOut1.TabIndex = 14;
             // 
             // lblIVLen
@@ -215,7 +232,7 @@
             // 
             btnIVReset.Location = new Point(264, 25);
             btnIVReset.Name = "btnIVReset";
-            btnIVReset.Size = new Size(23, 21);
+            btnIVReset.Size = new Size(23, 23);
             btnIVReset.TabIndex = 18;
             btnIVReset.Text = "R";
             btnIVReset.UseVisualStyleBackColor = true;
@@ -225,7 +242,7 @@
             // 
             btnKEYReset.Location = new Point(570, 25);
             btnKEYReset.Name = "btnKEYReset";
-            btnKEYReset.Size = new Size(23, 21);
+            btnKEYReset.Size = new Size(23, 23);
             btnKEYReset.TabIndex = 19;
             btnKEYReset.Text = "R";
             btnKEYReset.UseVisualStyleBackColor = true;
@@ -233,19 +250,109 @@
             // 
             // btnDATAReset
             // 
-            btnDATAReset.Location = new Point(884, 27);
+            btnDATAReset.Location = new Point(884, 25);
             btnDATAReset.Name = "btnDATAReset";
-            btnDATAReset.Size = new Size(23, 21);
+            btnDATAReset.Size = new Size(23, 23);
             btnDATAReset.TabIndex = 20;
             btnDATAReset.Text = "R";
             btnDATAReset.UseVisualStyleBackColor = true;
             btnDATAReset.Click += btnDATAReset_Click;
+            // 
+            // txtIVStack
+            // 
+            txtIVStack.Location = new Point(18, 53);
+            txtIVStack.Name = "txtIVStack";
+            txtIVStack.Size = new Size(241, 23);
+            txtIVStack.TabIndex = 21;
+            txtIVStack.Text = "2436372c6566892db1ddbd65bc657082";
+            txtIVStack.Click += txtIVStack_Click;
+            txtIVStack.DoubleClick += txtIVStack_DoubleClick;
+            // 
+            // txtKEYStack
+            // 
+            txtKEYStack.Location = new Point(323, 53);
+            txtKEYStack.Name = "txtKEYStack";
+            txtKEYStack.Size = new Size(241, 23);
+            txtKEYStack.TabIndex = 22;
+            txtKEYStack.Text = "aab8d355400b01e3dd521535acf0e110";
+            txtKEYStack.Click += txtKEYStack_Click;
+            txtKEYStack.DoubleClick += txtKEYStack_DoubleClick;
+            // 
+            // txtDATAStack
+            // 
+            txtDATAStack.Location = new Point(637, 53);
+            txtDATAStack.Name = "txtDATAStack";
+            txtDATAStack.Size = new Size(241, 23);
+            txtDATAStack.TabIndex = 23;
+            txtDATAStack.Text = "49492a0010000000435202004ab20000";
+            txtDATAStack.Click += txtDATAStack_Click;
+            txtDATAStack.DoubleClick += txtDATAStack_DoubleClick;
+            // 
+            // btnIVStack
+            // 
+            btnIVStack.Location = new Point(264, 53);
+            btnIVStack.Name = "btnIVStack";
+            btnIVStack.Size = new Size(23, 23);
+            btnIVStack.TabIndex = 24;
+            btnIVStack.Text = "X";
+            btnIVStack.UseVisualStyleBackColor = true;
+            btnIVStack.Click += btnIVStack_Click;
+            // 
+            // btnKeyStack
+            // 
+            btnKeyStack.Location = new Point(571, 53);
+            btnKeyStack.Name = "btnKeyStack";
+            btnKeyStack.Size = new Size(23, 23);
+            btnKeyStack.TabIndex = 25;
+            btnKeyStack.Text = "X";
+            btnKeyStack.UseVisualStyleBackColor = true;
+            btnKeyStack.Click += btnKeyStack_Click;
+            // 
+            // btnDataStack
+            // 
+            btnDataStack.Location = new Point(884, 53);
+            btnDataStack.Name = "btnDataStack";
+            btnDataStack.Size = new Size(23, 23);
+            btnDataStack.TabIndex = 27;
+            btnDataStack.Text = "X";
+            btnDataStack.UseVisualStyleBackColor = true;
+            btnDataStack.Click += btnDataStack_Click;
+            // 
+            // btnKey
+            // 
+            btnKey.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnKey.Location = new Point(778, 468);
+            btnKey.Name = "btnKey";
+            btnKey.Size = new Size(80, 23);
+            btnKey.TabIndex = 28;
+            btnKey.Text = "&Key";
+            btnKey.UseVisualStyleBackColor = true;
+            btnKey.Click += btnKey_Click;
+            // 
+            // brnKeyRevert
+            // 
+            brnKeyRevert.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            brnKeyRevert.Location = new Point(864, 468);
+            brnKeyRevert.Name = "brnKeyRevert";
+            brnKeyRevert.Size = new Size(80, 23);
+            brnKeyRevert.TabIndex = 29;
+            brnKeyRevert.Text = "Key &Revert";
+            brnKeyRevert.UseVisualStyleBackColor = true;
+            brnKeyRevert.Click += brnKeyRevert_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1165, 499);
+            Controls.Add(brnKeyRevert);
+            Controls.Add(btnKey);
+            Controls.Add(btnDataStack);
+            Controls.Add(btnKeyStack);
+            Controls.Add(btnIVStack);
+            Controls.Add(txtDATAStack);
+            Controls.Add(txtKEYStack);
+            Controls.Add(txtIVStack);
             Controls.Add(btnDATAReset);
             Controls.Add(btnKEYReset);
             Controls.Add(btnIVReset);
@@ -292,5 +399,13 @@
         private Button btnIVReset;
         private Button btnKEYReset;
         private Button btnDATAReset;
+        private TextBox txtIVStack;
+        private TextBox txtKEYStack;
+        private TextBox txtDATAStack;
+        private Button btnIVStack;
+        private Button btnKeyStack;
+        private Button btnDataStack;
+        private Button btnKey;
+        private Button brnKeyRevert;
     }
 }
