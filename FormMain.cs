@@ -401,6 +401,11 @@ namespace TestExportUI
                 strAkce = "-e";
             }
         }
+
+        private void txtOut2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

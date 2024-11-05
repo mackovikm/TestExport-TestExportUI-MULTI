@@ -39,8 +39,6 @@
             radioDecode = new RadioButton();
             radioEncode = new RadioButton();
             btnCopy = new Button();
-            txtOut2 = new TextBox();
-            txtOut1 = new TextBox();
             lblIVLen = new Label();
             lblKEYLen = new Label();
             lblDATALen = new Label();
@@ -55,6 +53,13 @@
             btnDataStack = new Button();
             btnKey = new Button();
             brnKeyRevert = new Button();
+            splitContainer1 = new SplitContainer();
+            txtOut2 = new TextBox();
+            txtOut1 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
             SuspendLayout();
             // 
             // btnClose
@@ -178,28 +183,6 @@
             btnCopy.Text = "&Do clipboardu";
             btnCopy.UseVisualStyleBackColor = true;
             btnCopy.Click += btnCopy_Click;
-            // 
-            // txtOut2
-            // 
-            txtOut2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtOut2.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut2.Location = new Point(16, 96);
-            txtOut2.Multiline = true;
-            txtOut2.Name = "txtOut2";
-            txtOut2.ScrollBars = ScrollBars.Both;
-            txtOut2.Size = new Size(562, 362);
-            txtOut2.TabIndex = 13;
-            // 
-            // txtOut1
-            // 
-            txtOut1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtOut1.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut1.Location = new Point(570, 96);
-            txtOut1.Multiline = true;
-            txtOut1.Name = "txtOut1";
-            txtOut1.ScrollBars = ScrollBars.Both;
-            txtOut1.Size = new Size(576, 362);
-            txtOut1.TabIndex = 14;
             // 
             // lblIVLen
             // 
@@ -340,11 +323,51 @@
             brnKeyRevert.UseVisualStyleBackColor = true;
             brnKeyRevert.Click += brnKeyRevert_Click;
             // 
+            // splitContainer1
+            // 
+            splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            splitContainer1.Location = new Point(18, 102);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(txtOut2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(txtOut1);
+            splitContainer1.Size = new Size(1128, 358);
+            splitContainer1.SplitterDistance = 564;
+            splitContainer1.TabIndex = 30;
+            // 
+            // txtOut2
+            // 
+            txtOut2.Dock = DockStyle.Fill;
+            txtOut2.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            txtOut2.Location = new Point(0, 0);
+            txtOut2.Multiline = true;
+            txtOut2.Name = "txtOut2";
+            txtOut2.ScrollBars = ScrollBars.Both;
+            txtOut2.Size = new Size(564, 358);
+            txtOut2.TabIndex = 33;
+            // 
+            // txtOut1
+            // 
+            txtOut1.Dock = DockStyle.Fill;
+            txtOut1.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            txtOut1.Location = new Point(0, 0);
+            txtOut1.Multiline = true;
+            txtOut1.Name = "txtOut1";
+            txtOut1.ScrollBars = ScrollBars.Both;
+            txtOut1.Size = new Size(560, 358);
+            txtOut1.TabIndex = 15;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1165, 499);
+            Controls.Add(splitContainer1);
             Controls.Add(brnKeyRevert);
             Controls.Add(btnKey);
             Controls.Add(btnDataStack);
@@ -359,8 +382,6 @@
             Controls.Add(lblDATALen);
             Controls.Add(lblKEYLen);
             Controls.Add(lblIVLen);
-            Controls.Add(txtOut1);
-            Controls.Add(txtOut2);
             Controls.Add(btnCopy);
             Controls.Add(radioEncode);
             Controls.Add(radioDecode);
@@ -375,6 +396,12 @@
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CBC Test";
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -391,8 +418,6 @@
         private RadioButton radioDecode;
         private RadioButton radioEncode;
         private Button btnCopy;
-        private TextBox txtOut2;
-        private TextBox txtOut1;
         private Label lblIVLen;
         private Label lblKEYLen;
         private Label lblDATALen;
@@ -407,5 +432,8 @@
         private Button btnDataStack;
         private Button btnKey;
         private Button brnKeyRevert;
+        private SplitContainer splitContainer1;
+        private TextBox txtOut2;
+        private TextBox txtOut1;
     }
 }
