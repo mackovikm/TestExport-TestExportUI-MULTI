@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnClose = new Button();
             txtIV = new TextBox();
             txtKEY = new TextBox();
@@ -51,23 +52,40 @@
             btnIVStack = new Button();
             btnKeyStack = new Button();
             btnDataStack = new Button();
-            btnKey = new Button();
-            brnKeyRevert = new Button();
             splitContainer1 = new SplitContainer();
-            txtOut2 = new TextBox();
-            txtOut1 = new TextBox();
+            txtOut = new TextBox();
+            txtKeyList = new TextBox();
+            brnKeyRevert = new Button();
+            btnKeyGEN = new Button();
+            btnKey = new Button();
+            btnKeyRevertGEN = new Button();
+            label1 = new Label();
+            txtCountFrom = new TextBox();
+            txtCountTo = new TextBox();
+            btnSAVE = new Button();
+            contextMenuOut = new ContextMenuStrip(components);
+            toolStripOutClear = new ToolStripMenuItem();
+            toolStripOutSeparator = new ToolStripSeparator();
+            toolStripOutSave = new ToolStripMenuItem();
+            contextMenuKey = new ContextMenuStrip(components);
+            toolStripKeyClear = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripKeySave = new ToolStripMenuItem();
+            btnLOAD = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            contextMenuOut.SuspendLayout();
+            contextMenuKey.SuspendLayout();
             SuspendLayout();
             // 
             // btnClose
             // 
             btnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnClose.Location = new Point(1066, 466);
+            btnClose.Location = new Point(1041, 466);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(80, 23);
+            btnClose.Size = new Size(105, 23);
             btnClose.TabIndex = 0;
             btnClose.Text = "&Zavřít";
             btnClose.UseVisualStyleBackColor = true;
@@ -87,11 +105,12 @@
             // 
             // txtKEY
             // 
+            txtKEY.AcceptsReturn = true;
             txtKEY.Location = new Point(323, 25);
             txtKEY.Name = "txtKEY";
             txtKEY.Size = new Size(241, 23);
             txtKEY.TabIndex = 2;
-            txtKEY.Text = "aab8d355400b01e3dd521535acf0e110";
+            txtKEY.Text = "xxb8d355400b01e3dd521535acf0e110";
             txtKEY.Click += txtKEY_Click;
             txtKEY.TextChanged += txtKEY_TextChanged;
             txtKEY.DoubleClick += txtKEY_DoubleClick;
@@ -103,7 +122,7 @@
             txtDATA.Name = "txtDATA";
             txtDATA.Size = new Size(241, 23);
             txtDATA.TabIndex = 3;
-            txtDATA.Text = "2fcb3dd0eb2210a6896e1286ac673b0f";
+            txtDATA.Text = "49492a0010000000435202004ab20000";
             txtDATA.Click += txtDATA_Click;
             txtDATA.TextChanged += txtDATA_TextChanged;
             txtDATA.DoubleClick += txtDATA_DoubleClick;
@@ -132,16 +151,16 @@
             lblDATA.AutoSize = true;
             lblDATA.Location = new Point(637, 7);
             lblDATA.Name = "lblDATA";
-            lblDATA.Size = new Size(35, 15);
+            lblDATA.Size = new Size(36, 15);
             lblDATA.TabIndex = 7;
             lblDATA.Text = "DATA";
             // 
             // btnRun
             // 
             btnRun.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnRun.Location = new Point(982, 466);
+            btnRun.Location = new Point(932, 466);
             btnRun.Name = "btnRun";
-            btnRun.Size = new Size(80, 23);
+            btnRun.Size = new Size(105, 23);
             btnRun.TabIndex = 8;
             btnRun.Text = "&Spustit";
             btnRun.UseVisualStyleBackColor = true;
@@ -165,7 +184,7 @@
             // 
             radioEncode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             radioEncode.AutoSize = true;
-            radioEncode.Location = new Point(100, 468);
+            radioEncode.Location = new Point(89, 468);
             radioEncode.Name = "radioEncode";
             radioEncode.Size = new Size(64, 19);
             radioEncode.TabIndex = 10;
@@ -176,11 +195,11 @@
             // btnCopy
             // 
             btnCopy.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCopy.Location = new Point(571, 468);
+            btnCopy.Location = new Point(333, 466);
             btnCopy.Name = "btnCopy";
-            btnCopy.Size = new Size(130, 23);
+            btnCopy.Size = new Size(80, 23);
             btnCopy.TabIndex = 12;
-            btnCopy.Text = "&Do clipboardu";
+            btnCopy.Text = "&Clipboard";
             btnCopy.UseVisualStyleBackColor = true;
             btnCopy.Click += btnCopy_Click;
             // 
@@ -257,7 +276,7 @@
             txtKEYStack.Name = "txtKEYStack";
             txtKEYStack.Size = new Size(241, 23);
             txtKEYStack.TabIndex = 22;
-            txtKEYStack.Text = "aab8d355400b01e3dd521535acf0e110";
+            txtKEYStack.Text = "930b3abb7099e355bf562b9503fa309b";
             txtKEYStack.Click += txtKEYStack_Click;
             txtKEYStack.DoubleClick += txtKEYStack_DoubleClick;
             // 
@@ -267,7 +286,7 @@
             txtDATAStack.Name = "txtDATAStack";
             txtDATAStack.Size = new Size(241, 23);
             txtDATAStack.TabIndex = 23;
-            txtDATAStack.Text = "49492a0010000000435202004ab20000";
+            txtDATAStack.Text = "2fcb3dd0eb2210a6896e1286ac673b0f";
             txtDATAStack.Click += txtDATAStack_Click;
             txtDATAStack.DoubleClick += txtDATAStack_DoubleClick;
             // 
@@ -301,28 +320,6 @@
             btnDataStack.UseVisualStyleBackColor = true;
             btnDataStack.Click += btnDataStack_Click;
             // 
-            // btnKey
-            // 
-            btnKey.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnKey.Location = new Point(778, 468);
-            btnKey.Name = "btnKey";
-            btnKey.Size = new Size(80, 23);
-            btnKey.TabIndex = 28;
-            btnKey.Text = "&Key";
-            btnKey.UseVisualStyleBackColor = true;
-            btnKey.Click += btnKey_Click;
-            // 
-            // brnKeyRevert
-            // 
-            brnKeyRevert.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            brnKeyRevert.Location = new Point(864, 468);
-            brnKeyRevert.Name = "brnKeyRevert";
-            brnKeyRevert.Size = new Size(80, 23);
-            brnKeyRevert.TabIndex = 29;
-            brnKeyRevert.Text = "Key &Revert";
-            brnKeyRevert.UseVisualStyleBackColor = true;
-            brnKeyRevert.Click += brnKeyRevert_Click;
-            // 
             // splitContainer1
             // 
             splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -331,45 +328,201 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(txtOut2);
+            splitContainer1.Panel1.Controls.Add(txtOut);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(txtOut1);
+            splitContainer1.Panel2.Controls.Add(txtKeyList);
             splitContainer1.Size = new Size(1128, 358);
-            splitContainer1.SplitterDistance = 564;
+            splitContainer1.SplitterDistance = 499;
             splitContainer1.TabIndex = 30;
             // 
-            // txtOut2
+            // txtOut
             // 
-            txtOut2.Dock = DockStyle.Fill;
-            txtOut2.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut2.Location = new Point(0, 0);
-            txtOut2.Multiline = true;
-            txtOut2.Name = "txtOut2";
-            txtOut2.ScrollBars = ScrollBars.Both;
-            txtOut2.Size = new Size(564, 358);
-            txtOut2.TabIndex = 33;
+            txtOut.AcceptsReturn = true;
+            txtOut.Dock = DockStyle.Fill;
+            txtOut.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            txtOut.Location = new Point(0, 0);
+            txtOut.Multiline = true;
+            txtOut.Name = "txtOut";
+            txtOut.ScrollBars = ScrollBars.Both;
+            txtOut.Size = new Size(499, 358);
+            txtOut.TabIndex = 33;
+            txtOut.DoubleClick += txtOut_DoubleClick;
             // 
-            // txtOut1
+            // txtKeyList
             // 
-            txtOut1.Dock = DockStyle.Fill;
-            txtOut1.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            txtOut1.Location = new Point(0, 0);
-            txtOut1.Multiline = true;
-            txtOut1.Name = "txtOut1";
-            txtOut1.ScrollBars = ScrollBars.Both;
-            txtOut1.Size = new Size(560, 358);
-            txtOut1.TabIndex = 15;
+            txtKeyList.AcceptsReturn = true;
+            txtKeyList.Dock = DockStyle.Fill;
+            txtKeyList.Font = new Font("Cascadia Mono SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            txtKeyList.Location = new Point(0, 0);
+            txtKeyList.Multiline = true;
+            txtKeyList.Name = "txtKeyList";
+            txtKeyList.ScrollBars = ScrollBars.Both;
+            txtKeyList.Size = new Size(625, 358);
+            txtKeyList.TabIndex = 34;
+            txtKeyList.DoubleClick += txtKeyList_DoubleClick;
+            // 
+            // brnKeyRevert
+            // 
+            brnKeyRevert.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            brnKeyRevert.Location = new Point(246, 466);
+            brnKeyRevert.Name = "brnKeyRevert";
+            brnKeyRevert.Size = new Size(80, 23);
+            brnKeyRevert.TabIndex = 32;
+            brnKeyRevert.Text = "Key &Revert";
+            brnKeyRevert.UseVisualStyleBackColor = true;
+            brnKeyRevert.Click += btnKeyRevert_Click;
+            // 
+            // btnKeyGEN
+            // 
+            btnKeyGEN.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnKeyGEN.Location = new Point(714, 466);
+            btnKeyGEN.Name = "btnKeyGEN";
+            btnKeyGEN.Size = new Size(105, 23);
+            btnKeyGEN.TabIndex = 31;
+            btnKeyGEN.Text = "&Key GEN";
+            btnKeyGEN.UseVisualStyleBackColor = true;
+            btnKeyGEN.Click += btnKeyGEN_Click;
+            // 
+            // btnKey
+            // 
+            btnKey.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnKey.Location = new Point(159, 466);
+            btnKey.Name = "btnKey";
+            btnKey.Size = new Size(80, 23);
+            btnKey.TabIndex = 33;
+            btnKey.Text = "&Key";
+            btnKey.UseVisualStyleBackColor = true;
+            btnKey.Click += btnKey_Click;
+            // 
+            // btnKeyRevertGEN
+            // 
+            btnKeyRevertGEN.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnKeyRevertGEN.Location = new Point(823, 466);
+            btnKeyRevertGEN.Name = "btnKeyRevertGEN";
+            btnKeyRevertGEN.Size = new Size(105, 23);
+            btnKeyRevertGEN.TabIndex = 34;
+            btnKeyRevertGEN.Text = "&Key Revert GEN";
+            btnKeyRevertGEN.UseVisualStyleBackColor = true;
+            btnKeyRevertGEN.Click += btnKeyRevertGEN_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(934, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 15);
+            label1.TabIndex = 36;
+            label1.Text = "COUNT";
+            // 
+            // txtCountFrom
+            // 
+            txtCountFrom.Location = new Point(934, 26);
+            txtCountFrom.Name = "txtCountFrom";
+            txtCountFrom.Size = new Size(42, 23);
+            txtCountFrom.TabIndex = 35;
+            txtCountFrom.Text = "00";
+            txtCountFrom.TextAlign = HorizontalAlignment.Center;
+            txtCountFrom.TextChanged += txtCountFrom_TextChanged;
+            // 
+            // txtCountTo
+            // 
+            txtCountTo.Location = new Point(982, 25);
+            txtCountTo.Name = "txtCountTo";
+            txtCountTo.Size = new Size(42, 23);
+            txtCountTo.TabIndex = 37;
+            txtCountTo.Text = "ff";
+            txtCountTo.TextAlign = HorizontalAlignment.Center;
+            txtCountTo.TextChanged += txtCountTo_TextChanged;
+            // 
+            // btnSAVE
+            // 
+            btnSAVE.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnSAVE.Location = new Point(472, 466);
+            btnSAVE.Name = "btnSAVE";
+            btnSAVE.Size = new Size(45, 23);
+            btnSAVE.TabIndex = 38;
+            btnSAVE.Text = "&Save";
+            btnSAVE.UseVisualStyleBackColor = true;
+            btnSAVE.Click += btnSAVE_Click;
+            // 
+            // contextMenuOut
+            // 
+            contextMenuOut.Items.AddRange(new ToolStripItem[] { toolStripOutClear, toolStripOutSeparator, toolStripOutSave });
+            contextMenuOut.Name = "contextMenuOut";
+            contextMenuOut.Size = new Size(113, 54);
+            // 
+            // toolStripOutClear
+            // 
+            toolStripOutClear.Name = "toolStripOutClear";
+            toolStripOutClear.Size = new Size(112, 22);
+            toolStripOutClear.Text = "&Vyčistit";
+            toolStripOutClear.Click += toolStripOutClear_Click;
+            // 
+            // toolStripOutSeparator
+            // 
+            toolStripOutSeparator.Name = "toolStripOutSeparator";
+            toolStripOutSeparator.Size = new Size(109, 6);
+            // 
+            // toolStripOutSave
+            // 
+            toolStripOutSave.Name = "toolStripOutSave";
+            toolStripOutSave.Size = new Size(112, 22);
+            toolStripOutSave.Text = "&Save";
+            toolStripOutSave.Click += toolStripOutSave_Click;
+            // 
+            // contextMenuKey
+            // 
+            contextMenuKey.Items.AddRange(new ToolStripItem[] { toolStripKeyClear, toolStripSeparator1, toolStripKeySave });
+            contextMenuKey.Name = "contextMenuOut";
+            contextMenuKey.Size = new Size(113, 54);
+            // 
+            // toolStripKeyClear
+            // 
+            toolStripKeyClear.Name = "toolStripKeyClear";
+            toolStripKeyClear.Size = new Size(112, 22);
+            toolStripKeyClear.Text = "&Vyčistit";
+            toolStripKeyClear.Click += toolStripMenuItem1_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(109, 6);
+            // 
+            // toolStripKeySave
+            // 
+            toolStripKeySave.Name = "toolStripKeySave";
+            toolStripKeySave.Size = new Size(112, 22);
+            toolStripKeySave.Text = "&Save";
+            toolStripKeySave.Click += toolStripKeySave_Click;
+            // 
+            // btnLOAD
+            // 
+            btnLOAD.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLOAD.Location = new Point(420, 466);
+            btnLOAD.Name = "btnLOAD";
+            btnLOAD.Size = new Size(45, 23);
+            btnLOAD.TabIndex = 39;
+            btnLOAD.Text = "&Load";
+            btnLOAD.UseVisualStyleBackColor = true;
+            btnLOAD.Click += btnLOAD_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1165, 499);
-            Controls.Add(splitContainer1);
-            Controls.Add(brnKeyRevert);
+            Controls.Add(btnLOAD);
+            Controls.Add(btnSAVE);
+            Controls.Add(txtCountTo);
+            Controls.Add(label1);
+            Controls.Add(txtCountFrom);
+            Controls.Add(btnKeyRevertGEN);
             Controls.Add(btnKey);
+            Controls.Add(brnKeyRevert);
+            Controls.Add(btnKeyGEN);
+            Controls.Add(splitContainer1);
             Controls.Add(btnDataStack);
             Controls.Add(btnKeyStack);
             Controls.Add(btnIVStack);
@@ -402,6 +555,8 @@
             splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            contextMenuOut.ResumeLayout(false);
+            contextMenuKey.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -430,10 +585,25 @@
         private Button btnIVStack;
         private Button btnKeyStack;
         private Button btnDataStack;
-        private Button btnKey;
-        private Button brnKeyRevert;
         private SplitContainer splitContainer1;
-        private TextBox txtOut2;
-        private TextBox txtOut1;
+        private TextBox txtOut;
+        private Button brnKeyRevert;
+        private Button btnKeyGEN;
+        private Button btnKey;
+        private Button btnKeyRevertGEN;
+        private TextBox txtKeyList;
+        private Label label1;
+        private TextBox txtCountFrom;
+        private TextBox txtCountTo;
+        private Button btnSAVE;
+        private ContextMenuStrip contextMenuOut;
+        private ToolStripMenuItem toolStripOutClear;
+        private ToolStripSeparator toolStripOutSeparator;
+        private ToolStripMenuItem toolStripOutSave;
+        private ContextMenuStrip contextMenuKey;
+        private ToolStripMenuItem toolStripKeyClear;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem toolStripKeySave;
+        private Button btnLOAD;
     }
 }

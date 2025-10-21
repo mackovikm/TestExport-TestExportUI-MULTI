@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <BaseOutputPath>d:\develop\TestExport\Output\</BaseOutputPath>
+    <BaseOutputPath>..\Output</BaseOutputPath>
   </PropertyGroup>
 
 </Project>
