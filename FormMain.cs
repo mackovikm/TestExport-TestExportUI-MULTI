@@ -791,6 +791,12 @@ namespace TestExportUI
         {
             contextMenuKey.Show(Cursor.Position);
         }
+
+        private void btnDir_Click(object sender, EventArgs e)
+        {
+            string defaultPath = Path.GetDirectoryName(Application.ExecutablePath);
+            Process.Start("explorer.exe", defaultPath);
+        }
     }
 }
     

@@ -72,6 +72,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripKeySave = new ToolStripMenuItem();
             btnLOAD = new Button();
+            btnDir = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -195,9 +196,9 @@
             // btnCopy
             // 
             btnCopy.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCopy.Location = new Point(333, 466);
+            btnCopy.Location = new Point(304, 466);
             btnCopy.Name = "btnCopy";
-            btnCopy.Size = new Size(80, 23);
+            btnCopy.Size = new Size(68, 23);
             btnCopy.TabIndex = 12;
             btnCopy.Text = "&Clipboard";
             btnCopy.UseVisualStyleBackColor = true;
@@ -366,9 +367,9 @@
             // brnKeyRevert
             // 
             brnKeyRevert.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            brnKeyRevert.Location = new Point(246, 466);
+            brnKeyRevert.Location = new Point(230, 466);
             brnKeyRevert.Name = "brnKeyRevert";
-            brnKeyRevert.Size = new Size(80, 23);
+            brnKeyRevert.Size = new Size(71, 23);
             brnKeyRevert.TabIndex = 32;
             brnKeyRevert.Text = "Key &Revert";
             brnKeyRevert.UseVisualStyleBackColor = true;
@@ -390,7 +391,7 @@
             btnKey.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnKey.Location = new Point(159, 466);
             btnKey.Name = "btnKey";
-            btnKey.Size = new Size(80, 23);
+            btnKey.Size = new Size(68, 23);
             btnKey.TabIndex = 33;
             btnKey.Text = "&Key";
             btnKey.UseVisualStyleBackColor = true;
@@ -439,7 +440,7 @@
             // btnSAVE
             // 
             btnSAVE.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSAVE.Location = new Point(472, 466);
+            btnSAVE.Location = new Point(422, 466);
             btnSAVE.Name = "btnSAVE";
             btnSAVE.Size = new Size(45, 23);
             btnSAVE.TabIndex = 38;
@@ -500,19 +501,31 @@
             // btnLOAD
             // 
             btnLOAD.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnLOAD.Location = new Point(420, 466);
+            btnLOAD.Location = new Point(375, 466);
             btnLOAD.Name = "btnLOAD";
-            btnLOAD.Size = new Size(45, 23);
+            btnLOAD.Size = new Size(44, 23);
             btnLOAD.TabIndex = 39;
             btnLOAD.Text = "&Load";
             btnLOAD.UseVisualStyleBackColor = true;
             btnLOAD.Click += btnLOAD_Click;
+            // 
+            // btnDir
+            // 
+            btnDir.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDir.Location = new Point(470, 466);
+            btnDir.Name = "btnDir";
+            btnDir.Size = new Size(45, 23);
+            btnDir.TabIndex = 40;
+            btnDir.Text = "&Dir";
+            btnDir.UseVisualStyleBackColor = true;
+            btnDir.Click += btnDir_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1165, 499);
+            Controls.Add(btnDir);
             Controls.Add(btnLOAD);
             Controls.Add(btnSAVE);
             Controls.Add(txtCountTo);
@@ -605,5 +618,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem toolStripKeySave;
         private Button btnLOAD;
+        private Button btnDir;
     }
 }
