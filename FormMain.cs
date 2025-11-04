@@ -795,7 +795,13 @@ namespace TestExportUI
         private void btnDir_Click(object sender, EventArgs e)
         {
             string defaultPath = Path.GetDirectoryName(Application.ExecutablePath);
-            Process.Start("explorer.exe", defaultPath);
+            string archivPath = Path.Combine(defaultPath, "Archiv");
+            
+            if (!Directory.Exists(archivPath))
+            {
+                Directory.CreateDirectory(archivPath);
+            }
+            Process.Start("totalcmd64.exe", "\"/O \"" + defaultPath + " \" " + archivPath + "\"");
         }
     }
 }
