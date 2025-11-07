@@ -796,12 +796,40 @@ namespace TestExportUI
         {
             string defaultPath = Path.GetDirectoryName(Application.ExecutablePath);
             string archivPath = Path.Combine(defaultPath, "Archiv");
-            
-            if (!Directory.Exists(archivPath))
+
+            try
             {
-                Directory.CreateDirectory(archivPath);
+                if (!Directory.Exists(archivPath))
+                {
+                    Directory.CreateDirectory(archivPath);
+                }
+                Process.Start("totalcmd64.exe", "\"/O \"" + defaultPath + " \" " + archivPath + "\"");
             }
-            Process.Start("totalcmd64.exe", "\"/O \"" + defaultPath + " \" " + archivPath + "\"");
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            string defaultPath = Path.GetDirectoryName(Application.ExecutablePath);
+            string ExcelXORPath = Path.Combine(defaultPath, "XOR table.xlsx");
+
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = ExcelXORPath;
+                psi.WorkingDirectory = defaultPath;
+                psi.UseShellExecute = true;
+                Process.Start(psi);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
     }
 }

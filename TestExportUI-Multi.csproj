@@ -9,4 +9,10 @@
     <BaseOutputPath>..\Output</BaseOutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Output\**" />
+    <EmbeddedResource Remove="Output\**" />
+    <None Remove="Output\**" />
+  </ItemGroup>
+
 </Project>
