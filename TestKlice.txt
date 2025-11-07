@@ -1,0 +1,33 @@
+
+round:00       aab8d355-400b01e3-dd521535-acf0e110
+round:01       274019c4-674b1827-ba190d12-16e9ec02
+round:02       3b8e6e83-5cc576a4-e6dc7bb6-f03597b4
+round:03       a906e30f-f5c395ab-131fee1d-e32a79a9
+round:04       44b0301e-b173a5b5-a26c4ba8-41463201
+round:05       0e934c9d-bfe0e928-1d8ca280-5cca9081
+round:06       5af340d7-e513a9ff-f89f0b7f-a4559bfe
+round:07       e6e7fb9e-03f45261-fb6b591e-5f3ec2e0 => 3225E1CF  41463201 -> 7363D3CE
+round:08       d4c21a51-d7364830-2c5d112e-7363d3ce => E0668B8F  5CCA9081 -> BCAC1B0E
+
+
+
+round:09       34a491de-e392d9ee-cfcfc8c0-bcac1b0e  => A7AFAB65 A4559BFE -> 03FA309B
+rount:10       930b3abb-7099e355-bf562b95-03fa309b  	  	    5F3EC2E0
+
+
+1  34A491DE    34a491de|e392d9ee-cfcfc8c0-bcac1b0e     90F10A20
+2  D7364830    34a491de-e392d9ee|cfcfc8c0-bcac1b0e     7363D3CE
+3  18F980F0    34a491de-e392d9ee-cfcfc8c0|bcac1b0e     BCAC1B0E
+4  A4559BFE    34a491de-e392d9ee-cfcfc8c0-bcac1b0e     00000000
+				
+   
+   
+   5F3EC2E0    930b3abb-7099e355-bf562b95-03fa309b
+                     e392d9ee          bcac1b0e
+
+0  A7AFAB65   XOR 	
+   
+   34A491DE    930b3abb
+   D7364830             7099e355
+   18F980F0                      bf562b95
+   A4559BFE                               03fa309b
