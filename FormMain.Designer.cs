@@ -74,6 +74,7 @@
             btnLOAD = new Button();
             btnDir = new Button();
             btnExcel = new Button();
+            txtCountInc = new TextBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -196,7 +197,7 @@
             // 
             // btnCopy
             // 
-            btnCopy.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCopy.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCopy.Location = new Point(304, 466);
             btnCopy.Name = "btnCopy";
             btnCopy.Size = new Size(68, 23);
@@ -522,6 +523,7 @@
             btnDir.Click += btnDir_Click;
             // 
             // btnExcel
+            // txtCountInc
             // 
             btnExcel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnExcel.Location = new Point(519, 466);
@@ -531,6 +533,13 @@
             btnExcel.Text = "&XOR Excel";
             btnExcel.UseVisualStyleBackColor = true;
             btnExcel.Click += btnExcel_Click;
+            txtCountInc.Location = new Point(1030, 26);
+            txtCountInc.Name = "txtCountInc";
+            txtCountInc.Size = new Size(42, 23);
+            txtCountInc.TabIndex = 41;
+            txtCountInc.Text = "01";
+            txtCountInc.TextAlign = HorizontalAlignment.Center;
+            txtCountInc.TextChanged += txtCountInc_TextChanged;
             // 
             // frmMain
             // 
@@ -538,6 +547,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1165, 499);
             Controls.Add(btnExcel);
+            Controls.Add(txtCountInc);
             Controls.Add(btnDir);
             Controls.Add(btnLOAD);
             Controls.Add(btnSAVE);
@@ -633,5 +643,6 @@
         private Button btnLOAD;
         private Button btnDir;
         private Button btnExcel;
+        private TextBox txtCountInc;
     }
 }

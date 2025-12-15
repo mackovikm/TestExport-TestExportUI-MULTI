@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
@@ -26,6 +27,7 @@ namespace TestExportUI
 
         private int intFrom = 0x00;
         private int intTo = 0xFF;
+        private int intIncrement = 0x01;
 
 
         private clsKeyList keyList = new clsKeyList();
@@ -91,17 +93,42 @@ namespace TestExportUI
 
         private void txtCountFrom_TextChanged(object sender, EventArgs e)
         {
-            if (!HexToInt(txtCountFrom.Text, 0x00, out intFrom))
+            if (!String.IsNullOrEmpty(txtCountFrom.Text))
             {
-                txtCountFrom.Text = "00";
+                if (!HexToInt(txtCountFrom.Text, intFrom, out intFrom))
+                {
+                    //txtCountFrom.Text = "00";
+                    String strHexVal = String.Format("{0:X2}", intFrom);
+                    txtCountFrom.Text = strHexVal;
+
+                }
             }
         }
 
         private void txtCountTo_TextChanged(object sender, EventArgs e)
         {
-            if (!HexToInt(txtCountTo.Text, 0xff, out intTo))
+            if (!String.IsNullOrEmpty(txtCountTo.Text))
             {
-                txtCountTo.Text = "ff";
+                if (!HexToInt(txtCountTo.Text, intTo, out intTo))
+                {
+                    //txtCountTo.Text = "ff";
+                    String strHexVal = String.Format("{0:X2}", intTo);
+                    txtCountTo.Text = strHexVal;
+                }
+            }
+        }
+
+        private void txtCountInc_TextChanged(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(txtCountInc.Text))
+            {
+                if (!HexToInt(txtCountInc.Text, intIncrement, out intIncrement))
+                {
+                    //txtCountInc.Text = "01";
+                    String strHexVal = String.Format("{0:X2}", intIncrement);
+                    txtCountInc.Text = strHexVal;
+                }
+
             }
         }
 
@@ -116,6 +143,8 @@ namespace TestExportUI
                 MessageBox.Show("Nejsou vygenerované žádné klièw", "CHYBA VSTUPNÍCH DAT", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            countervalueCheck();
 
             txtOut.Clear();
             txtKeyList.Clear();
@@ -608,6 +637,8 @@ namespace TestExportUI
 
             keyList = new clsKeyList();
 
+            countervalueCheck();
+
             txtOut.Clear();
             txtKeyList.Clear();
 
@@ -619,7 +650,7 @@ namespace TestExportUI
                 DateTime now = DateTime.Now;
                 string strHexVal = string.Empty;
 
-                for (uint counter = (uint)intFrom; counter <= (uint)intTo; counter++)
+                for (uint counter = (uint)intFrom; counter <= (uint)intTo; counter = counter + (uint)intIncrement)
                 {
                     string strFilename = String.Format("Export_{0}_{1:X2}.txt", now.ToString("yyyyMMdd-HHmmss"), counter);
 
@@ -660,6 +691,8 @@ namespace TestExportUI
 
             keyList = new clsKeyList();
 
+            countervalueCheck();
+
             txtOut.Clear();
             txtKeyList.Clear();
 
@@ -671,7 +704,7 @@ namespace TestExportUI
                 DateTime now = DateTime.Now;
                 string strHexVal = string.Empty;
 
-                for (uint counter = (uint)intFrom; counter <= (uint)intTo; counter++)
+                for (uint counter = (uint)intFrom; counter <= (uint)intTo; counter = counter + (uint)intIncrement)
                 {
                     string strFilename = String.Format("Export_{0}_{1:X2}.txt", now.ToString("yyyyMMdd-HHmmss"), counter);
 
@@ -794,11 +827,11 @@ namespace TestExportUI
 
         private void btnDir_Click(object sender, EventArgs e)
         {
-            string defaultPath = Path.GetDirectoryName(Application.ExecutablePath);
-            string archivPath = Path.Combine(defaultPath, "Archiv");
-
             try
             {
+                string defaultPath = Path.GetDirectoryName(Application.ExecutablePath);
+                string archivPath = Path.Combine(defaultPath, "Archiv");
+
                 if (!Directory.Exists(archivPath))
                 {
                     Directory.CreateDirectory(archivPath);
@@ -829,6 +862,27 @@ namespace TestExportUI
             {
                 Console.WriteLine(exception);
                 MessageBox.Show(exception.Message, "EXCEL XOR table.xlsx nelze spustit", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        private void countervalueCheck()
+        {
+            if (String.IsNullOrEmpty(txtCountFrom.Text))
+            {
+                String strHexVal = String.Format("{0:X2}", intFrom);
+                txtCountFrom.Text = strHexVal;
+            }
+
+            if (String.IsNullOrEmpty(txtCountTo.Text))
+            {
+                String strHexVal = String.Format("{0:X2}", intTo);
+                txtCountTo.Text = strHexVal;
+            }
+
+            if (String.IsNullOrEmpty(txtCountInc.Text))
+            {
+                    String strHexVal = String.Format("{0:X2}", intIncrement);
+                    txtCountInc.Text = strHexVal;
             }
         }
     }
