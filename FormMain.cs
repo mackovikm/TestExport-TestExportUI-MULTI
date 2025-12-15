@@ -808,7 +808,7 @@ namespace TestExportUI
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                throw;
+                MessageBox.Show(exception.Message, "TOTALCOMANDER nelze spustit", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -828,7 +828,7 @@ namespace TestExportUI
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                throw;
+                MessageBox.Show(exception.Message, "EXCEL XOR table.xlsx nelze spustit", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
     }

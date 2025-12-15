@@ -15,4 +15,10 @@
     <None Remove="Output\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="XOR table.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
